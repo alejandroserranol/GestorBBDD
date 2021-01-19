@@ -11,7 +11,9 @@ package codigo;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     
-    ConectorBBDD conector = null;
+    //ConectorBBDD conector = null;
+    
+    PoolConexiones pConexiones = null;
 
     /**
      * Creates new form VentanaPrincipal
@@ -74,13 +76,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButtonConexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConexionActionPerformed
         
-        conector = new ConectorBBDD();
+        pConexiones = new PoolConexiones();
         
     }//GEN-LAST:event_jButtonConexionActionPerformed
 
     private void jButtonDesconexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDesconexionActionPerformed
         
-        if(conector.cerrarConexion() == 0){
+        if(pConexiones.cerrarConexion() == 0){
             System.out.println("Conexión cerrada correctamente.");
         } else {
             System.out.println("Error al cerrar la conexión.");
