@@ -46,12 +46,17 @@ public class ConectorBBDD {
         }        
     }
     
-    public int annadirCampo(String _nombreColumna, String _tipoDato){
+    public int annadirCampo(String _tabla, String _nombreColumna, String _tipoDato, String _varSize){
+        String tipoDato = "";
+        if(_varSize.length() > 0){
+            tipoDato = _tipoDato + "(" + _varSize + ")";
+        } else {
+            tipoDato = _tipoDato;
+        }
         Statement sta;
-        System.out.println(_nombreColumna + "\t" + _tipoDato);
         try {
             sta = conexion.createStatement();
-            sta.executeUpdate("ALTER TABLE album ADD " + _nombreColumna + " " + _tipoDato + ";");
+            sta.executeUpdate("ALTER TABLE " + _tabla + " ADD " + _nombreColumna + " " + tipoDato + ";");
             sta.close();
             return 0;
         } catch(SQLException ex){

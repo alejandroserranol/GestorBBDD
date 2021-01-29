@@ -46,6 +46,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jComboBoxUserDB = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextAreaSalida = new javax.swing.JTextArea();
+        jLabelInsertAlbum = new javax.swing.JLabel();
         jLabelTituloAlbum = new javax.swing.JLabel();
         jTextFieldTituloAlbum = new javax.swing.JTextField();
         jLabelTituloGrupo = new javax.swing.JLabel();
@@ -64,9 +65,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabelAlbum = new javax.swing.JLabel();
         jButtonAnnadirCancion = new javax.swing.JButton();
         jComboBoxAlbum = new javax.swing.JComboBox<>();
+        jLabelInsertAlbum1 = new javax.swing.JLabel();
         jPanelAdmin = new javax.swing.JPanel();
         jTextFieldAnnadirCampo = new javax.swing.JTextField();
         jComboBoxCampo = new javax.swing.JComboBox<>();
+        jComboBoxTabla = new javax.swing.JComboBox<>();
+        jTextFieldVarSize = new javax.swing.JTextField();
         jButtonAnnadirCampo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,6 +104,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jTextAreaSalida.setRows(5);
         jScrollPane2.setViewportView(jTextAreaSalida);
 
+        jLabelInsertAlbum.setText("Añadir album");
+
         jLabelTituloAlbum.setText("Título *");
 
         jLabelTituloGrupo.setText("Grupo *");
@@ -108,7 +114,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabelTituloProductor.setText("Productor");
 
-        jButtonAnnadirAlbum.setText("Añadir album");
+        jButtonAnnadirAlbum.setText("Añadir");
         jButtonAnnadirAlbum.setEnabled(false);
         jButtonAnnadirAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,7 +130,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabelAlbum.setText("Album");
 
-        jButtonAnnadirCancion.setText("Añadir cancion");
+        jButtonAnnadirCancion.setText("Añadir");
         jButtonAnnadirCancion.setEnabled(false);
         jButtonAnnadirCancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,119 +140,106 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jComboBoxAlbum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jLabelInsertAlbum1.setText("Añadir cancion");
+
         javax.swing.GroupLayout jPanelUserLayout = new javax.swing.GroupLayout(jPanelUser);
         jPanelUser.setLayout(jPanelUserLayout);
         jPanelUserLayout.setHorizontalGroup(
             jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUserLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
                     .addGroup(jPanelUserLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelUserLayout.createSequentialGroup()
-                                .addComponent(jButtonMostrarAlbumes)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBoxUserDB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanelUserLayout.createSequentialGroup()
+                        .addComponent(jButtonMostrarAlbumes)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBoxUserDB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelUserLayout.createSequentialGroup()
+                            .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelTituloAlbum)
                                 .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelTituloAlbum)
-                                    .addComponent(jTextFieldTituloAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelTituloGrupo)
-                                    .addComponent(jTextFieldGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelTituloDuracionAlbum)
-                                    .addComponent(jTextFieldDuracionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                                        .addComponent(jLabelTituloProductor)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                                        .addComponent(jTextFieldProductor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButtonAnnadirAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                            .addGroup(jPanelUserLayout.createSequentialGroup()
-                                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelTituloCancion)
-                                    .addComponent(jTextFieldTituloCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelDuracionCancion)
-                                    .addComponent(jTextFieldDuracionCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelEscritor)
-                                    .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                                        .addComponent(jLabelAlbum)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                                        .addComponent(jComboBoxAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButtonAnnadirCancion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))))
-                .addContainerGap())
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jTextFieldTituloCancion, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldTituloAlbum))
+                                    .addComponent(jLabelTituloCancion)))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldDuracionCancion, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldGrupo)
+                                    .addComponent(jLabelDuracionCancion))
+                                .addComponent(jLabelTituloGrupo))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldDuracionAlbum)
+                                    .addComponent(jLabelEscritor))
+                                .addComponent(jLabelTituloDuracionAlbum))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelTituloProductor)
+                                .addComponent(jLabelAlbum)
+                                .addGroup(jPanelUserLayout.createSequentialGroup()
+                                    .addComponent(jComboBoxAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButtonAnnadirCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanelUserLayout.createSequentialGroup()
+                                    .addComponent(jTextFieldProductor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jButtonAnnadirAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jLabelInsertAlbum)
+                    .addComponent(jLabelInsertAlbum1))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jPanelUserLayout.setVerticalGroup(
             jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUserLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                        .addComponent(jLabelTituloGrupo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                        .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonMostrarAlbumes)
-                            .addComponent(jComboBoxUserDB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabelTituloAlbum)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldTituloAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                        .addComponent(jLabelTituloDuracionAlbum)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldDuracionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                        .addComponent(jLabelTituloProductor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldProductor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonAnnadirAlbum))))
+                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonMostrarAlbumes)
+                    .addComponent(jComboBoxUserDB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                        .addComponent(jLabelDuracionCancion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldDuracionCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                        .addComponent(jLabelTituloCancion)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldTituloCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                        .addComponent(jLabelEscritor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanelUserLayout.createSequentialGroup()
-                        .addComponent(jLabelAlbum)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonAnnadirCancion)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addComponent(jLabelInsertAlbum)
+                .addGap(18, 18, 18)
+                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTituloAlbum)
+                    .addComponent(jLabelTituloGrupo)
+                    .addComponent(jLabelTituloDuracionAlbum)
+                    .addComponent(jLabelTituloProductor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldTituloAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldGrupo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDuracionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldProductor, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAnnadirAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabelInsertAlbum1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelTituloCancion)
+                    .addComponent(jLabelDuracionCancion)
+                    .addComponent(jLabelEscritor)
+                    .addComponent(jLabelAlbum))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldTituloCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDuracionCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAnnadirCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Usuario", jPanelUser);
 
         jComboBoxCampo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jComboBoxTabla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButtonAnnadirCampo.setText("Agregar nuevos campos");
         jButtonAnnadirCampo.setEnabled(false);
@@ -262,12 +255,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAdminLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldAnnadirCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                .addComponent(jTextFieldAnnadirCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jComboBoxTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jTextFieldVarSize, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonAnnadirCampo)
-                .addGap(275, 275, 275))
+                .addGap(62, 62, 62))
         );
         jPanelAdminLayout.setVerticalGroup(
             jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -276,8 +273,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAnnadirCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldAnnadirCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(471, Short.MAX_VALUE))
+                    .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldVarSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(486, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Administrador", jPanelAdmin);
@@ -287,30 +286,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane1)
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonConexion, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonDesconexion)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jLabelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(6, 6, 6))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonConexion)
-                        .addComponent(jButtonDesconexion)))
-                .addComponent(jTabbedPane1)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonDesconexion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonConexion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -341,6 +338,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
         for(String elemento : tipoDato){
             this.jComboBoxCampo.addItem(elemento);
+        }
+        
+        this.jComboBoxTabla.removeAllItems();
+        String[] tablas = { "album", "cancion" }; 
+        
+        for(String elemento : tablas){
+            this.jComboBoxTabla.addItem(elemento);
         }
         
         this.jComboBoxUserDB.removeAllItems();
@@ -382,7 +386,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButtonAnnadirCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnnadirCampoActionPerformed
             
-        int resultadoModificacion = conector.annadirCampo(this.jTextFieldAnnadirCampo.getText(), this.jComboBoxCampo.getSelectedItem().toString());
+        int resultadoModificacion = conector.annadirCampo(this.jComboBoxTabla.getSelectedItem().toString(), this.jTextFieldAnnadirCampo.getText(), this.jComboBoxCampo.getSelectedItem().toString(), this.jTextFieldVarSize.getText());
         
         switch (resultadoModificacion) {
             case -1:
@@ -470,10 +474,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonMostrarAlbumes;
     private javax.swing.JComboBox<String> jComboBoxAlbum;
     private javax.swing.JComboBox<String> jComboBoxCampo;
+    private javax.swing.JComboBox<String> jComboBoxTabla;
     private javax.swing.JComboBox<String> jComboBoxUserDB;
     private javax.swing.JLabel jLabelAlbum;
     private javax.swing.JLabel jLabelDuracionCancion;
     private javax.swing.JLabel jLabelEscritor;
+    private javax.swing.JLabel jLabelInsertAlbum;
+    private javax.swing.JLabel jLabelInsertAlbum1;
     private javax.swing.JLabel jLabelMensaje;
     private javax.swing.JLabel jLabelTituloAlbum;
     private javax.swing.JLabel jLabelTituloCancion;
@@ -493,5 +500,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldProductor;
     private javax.swing.JTextField jTextFieldTituloAlbum;
     private javax.swing.JTextField jTextFieldTituloCancion;
+    private javax.swing.JTextField jTextFieldVarSize;
     // End of variables declaration//GEN-END:variables
 }
