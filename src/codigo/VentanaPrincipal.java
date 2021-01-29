@@ -11,13 +11,17 @@ package codigo;
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
     
-    ConectorBBDD conector = null;
+    ConectorBBDD conector = new ConectorBBDD();
 
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        //Se inicie en el centro de la pantalla
+        this.setLocationRelativeTo(null);
+        //No se puede redimensionar
+        //this.setUndecorated(true);
     }
 
     /**
@@ -29,8 +33,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabelMensaje = new javax.swing.JLabel();
         jButtonConexion = new javax.swing.JButton();
         jButtonDesconexion = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanelUser = new javax.swing.JPanel();
+        jButtonMostrarAlbumes = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jPanelAdmin = new javax.swing.JPanel();
+        jTextFieldAnnadirCampo = new javax.swing.JTextField();
+        jComboBoxCampo = new javax.swing.JComboBox<>();
+        jButtonAnnadirCampo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -42,11 +55,75 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         jButtonDesconexion.setText("Desconectar de la BBDD");
+        jButtonDesconexion.setEnabled(false);
         jButtonDesconexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDesconexionActionPerformed(evt);
             }
         });
+
+        jButtonMostrarAlbumes.setText("Mostrar álbumes");
+
+        jButton1.setText("Mostrar canciones");
+
+        javax.swing.GroupLayout jPanelUserLayout = new javax.swing.GroupLayout(jPanelUser);
+        jPanelUser.setLayout(jPanelUserLayout);
+        jPanelUserLayout.setHorizontalGroup(
+            jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelUserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButtonMostrarAlbumes)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(570, Short.MAX_VALUE))
+        );
+        jPanelUserLayout.setVerticalGroup(
+            jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelUserLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonMostrarAlbumes)
+                    .addComponent(jButton1))
+                .addContainerGap(499, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Usuario", jPanelUser);
+
+        jComboBoxCampo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButtonAnnadirCampo.setText("Agregar nuevos campos");
+        jButtonAnnadirCampo.setEnabled(false);
+        jButtonAnnadirCampo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnnadirCampoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelAdminLayout = new javax.swing.GroupLayout(jPanelAdmin);
+        jPanelAdmin.setLayout(jPanelAdminLayout);
+        jPanelAdminLayout.setHorizontalGroup(
+            jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAdminLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextFieldAnnadirCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonAnnadirCampo)
+                .addGap(275, 275, 275))
+        );
+        jPanelAdminLayout.setVerticalGroup(
+            jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAdminLayout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addGroup(jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonAnnadirCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAnnadirCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(471, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Administrador", jPanelAdmin);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,19 +131,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonDesconexion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonConexion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(243, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonConexion, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonDesconexion)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonConexion)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonDesconexion)
-                .addContainerGap(225, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(6, 6, 6))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonConexion)
+                        .addComponent(jButtonDesconexion)))
+                .addComponent(jTabbedPane1)
+                .addContainerGap())
         );
 
         pack();
@@ -74,19 +161,69 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButtonConexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConexionActionPerformed
         
-        conector = new ConectorBBDD();
+        if (conector.ConectarBBDD() == -1) {
+            jLabelMensaje.setText("ERROR en la conexión a la BBDD discografica.");
+            jButtonConexion.setEnabled(false);
+            jButtonDesconexion.setEnabled(false);
+            jButtonAnnadirCampo.setEnabled(false);
+        } else {
+            jLabelMensaje.setText("Conectado a discografica.");
+            jButtonConexion.setEnabled(false);
+            jButtonDesconexion.setEnabled(true);
+            jButtonAnnadirCampo.setEnabled(true);
+        }
+        
+        this.jComboBoxCampo.removeAllItems();
+        String[] tipoDato = { "INTEGER", "TINYINT", "VARCHAR", "TIME", "YEAR", "BLOB" };
+        
+        for(String elemento : tipoDato){
+            this.jComboBoxCampo.addItem(elemento);
+        }
         
     }//GEN-LAST:event_jButtonConexionActionPerformed
 
     private void jButtonDesconexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDesconexionActionPerformed
         
-        if(conector.cerrarConexion() == 0){
-            System.out.println("Conexión cerrada correctamente.");
+        if(conector.cerrarConexion() == -1){
+            jLabelMensaje.setText("Error al cerrar la conexión.");
+            jButtonConexion.setEnabled(false);
+            jButtonDesconexion.setEnabled(false);
+            jButtonAnnadirCampo.setEnabled(false);
         } else {
-            System.out.println("Error al cerrar la conexión.");
+            jLabelMensaje.setText("Conexión cerrada correctamente.");
+            jButtonConexion.setEnabled(true);
+            jButtonDesconexion.setEnabled(false);
+            jButtonAnnadirCampo.setEnabled(false);
         }
         
     }//GEN-LAST:event_jButtonDesconexionActionPerformed
+
+    private void jButtonAnnadirCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnnadirCampoActionPerformed
+            
+        int resultadoModificacion = conector.annadirCampo(jTextFieldAnnadirCampo.getText(), jComboBoxCampo.getSelectedItem().toString());
+        
+        switch (resultadoModificacion) {
+            case -1:
+                jLabelMensaje.setText("La columna existe en la base de datos.");
+                jButtonConexion.setEnabled(false);
+                jButtonDesconexion.setEnabled(false);
+                jButtonAnnadirCampo.setEnabled(false);
+                break;
+            case -2:
+                jLabelMensaje.setText("Error al añadir publicación.");
+                jButtonConexion.setEnabled(false);
+                jButtonDesconexion.setEnabled(false);
+                jButtonAnnadirCampo.setEnabled(false);
+                break;
+            default:
+                jLabelMensaje.setText("Columna añadida satisfactoriamente.");
+                jButtonConexion.setEnabled(false);
+                jButtonDesconexion.setEnabled(true);
+                jButtonAnnadirCampo.setEnabled(false);
+                break;
+        }
+        
+    }//GEN-LAST:event_jButtonAnnadirCampoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -97,24 +234,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+        
+        
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -124,7 +247,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAnnadirCampo;
     private javax.swing.JButton jButtonConexion;
     private javax.swing.JButton jButtonDesconexion;
+    private javax.swing.JButton jButtonMostrarAlbumes;
+    private javax.swing.JComboBox<String> jComboBoxCampo;
+    private javax.swing.JLabel jLabelMensaje;
+    private javax.swing.JPanel jPanelAdmin;
+    private javax.swing.JPanel jPanelUser;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextFieldAnnadirCampo;
     // End of variables declaration//GEN-END:variables
 }

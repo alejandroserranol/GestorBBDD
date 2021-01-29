@@ -8,6 +8,7 @@ package codigo;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -17,7 +18,7 @@ public class ConectorBBDD {
     
     Connection conexion = null;
     
-    public ConectorBBDD(){
+    public int ConectarBBDD(){
         try {
             String urlBBDD = "jdbc:mysql://localhost:3306/discografica";
             String usuario = "root";
@@ -25,13 +26,11 @@ public class ConectorBBDD {
             
             conexion = DriverManager.getConnection(urlBBDD, usuario, password);
             
-            if(conexion != null){
-                System.out.println("Conectado a la base de datos discografica.");
-            }
-            
+            return 0;
             
         } catch (SQLException ex) {
             System.out.println(ex.toString());
+            return -1;
         }
     }
     
@@ -44,5 +43,42 @@ public class ConectorBBDD {
             return -1;
         }        
     }
+    
+    public int annadirCampo(String _nombreColumna, String _tipoDato){
+        Statement sta;
+        System.out.println(_nombreColumna + "\t" + _tipoDato);
+        try {
+            sta = conexion.createStatement();
+            sta.executeUpdate("ALTER TABLE album ADD " + _nombreColumna + " " + _tipoDato + ";");
+            sta.close();
+            return 0;
+        } catch(SQLException ex){
+            if(ex.toString().contains("java.sql.SQLSyntaxErrorException: Duplicate column name")){
+                return -1;
+            } else {
+                return -2;
+            }
+        }        
+    }
+
+    public int annadirAlbum() {
+        
+        Statement sta;
+        try {
+            sta = conexion.createStatement();
+            sta.executeUpdate("INSERT INTO album VALUE (), 'Greatest Hits', 'Queen';");
+            sta.close();
+            return 0;
+        } catch(SQLException ex){
+            if(ex.toString().contains("java.sql.SQLSyntaxErrorException: Duplicate column name")){
+                return -1;
+            } else {
+                return -2;
+            }
+        }  
+        
+    }
+    
+    
     
 }
