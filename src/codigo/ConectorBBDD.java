@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -45,6 +46,41 @@ public class ConectorBBDD {
             return -1;
         }        
     }
+    
+    public ArrayList<Album> albumList() {
+        ArrayList<Album> albumesList = new ArrayList<>();
+        try {
+            String query1 = "SELECT * FROM album;";
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(query1);
+            Album album;
+            while(rs.next()){
+                album = new Album(rs.getInt("id"), rs.getString("titulo"), rs.getString("grupo"), rs.getTime("duracion"), rs.getString("productor"));
+                albumesList.add(album);
+            }
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return albumesList;
+    }
+    
+    public ArrayList<Cancion> cancionList() {
+        ArrayList<Cancion> cancionesList = new ArrayList<>();
+        try {
+            String query1 = "SELECT * FROM cancion;";
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(query1);
+            Cancion cancion;
+            while(rs.next()){
+                cancion = new Cancion(rs.getInt("id"), rs.getString("titulo"), rs.getTime("duracion"), rs.getString("escritor"), rs.getInt("album"));
+                cancionesList.add(cancion);
+            }
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return cancionesList;        
+    }
+    
     
     public int annadirCampo(String _tabla, String _nombreColumna, String _tipoDato, String _varSize){
         String tipoDato = "";

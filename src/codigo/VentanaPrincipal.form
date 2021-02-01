@@ -49,8 +49,8 @@
                   <Component id="jButtonConexion" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" pref="686" max="-2" attributes="0"/>
+              <EmptySpace pref="33" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,11 +79,11 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanelUser">
+        <Container class="javax.swing.JPanel" name="jPanelAlbumes">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Usuario">
-                <Property name="tabTitle" type="java.lang.String" value="Usuario"/>
+              <JTabbedPaneConstraints tabName="&#xc1;lbumes">
+                <Property name="tabTitle" type="java.lang.String" value="&#xc1;lbumes"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -94,63 +94,38 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButtonMostrarAlbumes" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jComboBoxUserDB" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelTituloAlbum" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
-                                              <Component id="jTextFieldTituloCancion" pref="135" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldTituloAlbum" alignment="1" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Component id="jLabelTituloCancion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jTextFieldDuracionCancion" pref="135" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldGrupo" max="32767" attributes="0"/>
-                                          <Component id="jLabelDuracionCancion" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jLabelTituloGrupo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jTextFieldEscritor" pref="135" max="32767" attributes="0"/>
-                                          <Component id="jTextFieldDuracionAlbum" max="32767" attributes="0"/>
-                                          <Component id="jLabelEscritor" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jLabelTituloDuracionAlbum" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelTituloProductor" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelAlbum" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jComboBoxAlbum" min="-2" pref="135" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jButtonAnnadirCancion" min="-2" pref="131" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jTextFieldProductor" min="-2" pref="135" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="jButtonAnnadirAlbum" min="-2" pref="131" max="-2" attributes="0"/>
-                                      </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelTituloAlbum" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldTituloAlbum" alignment="0" pref="134" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextFieldGrupo" alignment="0" pref="136" max="32767" attributes="0"/>
+                                  <Component id="jLabelTituloGrupo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextFieldDuracionAlbum" alignment="0" pref="140" max="32767" attributes="0"/>
+                                  <Component id="jLabelTituloDuracionAlbum" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelTituloProductor" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jTextFieldProductor" min="-2" pref="135" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jButtonAnnadirAlbum" min="-2" pref="131" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="jLabelInsertAlbum" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelInsertAlbum1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jButtonDisplayAlbum" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="15" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -158,15 +133,10 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonMostrarAlbumes" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBoxUserDB" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jButtonDisplayAlbum" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="305" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabelInsertAlbum" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="414" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelTituloAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelTituloGrupo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -181,73 +151,12 @@
                           <Component id="jTextFieldProductor" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jButtonAnnadirAlbum" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabelInsertAlbum1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="15" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelTituloCancion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelDuracionCancion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelEscritor" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldTituloCancion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldDuracionCancion" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldEscritor" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBoxAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonAnnadirCancion" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="143" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButtonMostrarAlbumes">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Mostrar &#xe1;lbumes"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonMostrarAlbumesActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBoxUserDB">
-              <Properties>
-                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
-                </Property>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-              </AuxValues>
-            </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-              <AuxValues>
-                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-              </AuxValues>
-
-              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-              <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextAreaSalida">
-                  <Properties>
-                    <Property name="columns" type="int" value="20"/>
-                    <Property name="rows" type="int" value="5"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
-            <Component class="javax.swing.JLabel" name="jLabelInsertAlbum">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="A&#xf1;adir album"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabelTituloAlbum">
               <Properties>
                 <Property name="text" type="java.lang.String" value="T&#xed;tulo *"/>
@@ -285,6 +194,214 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAnnadirAlbumActionPerformed"/>
               </Events>
             </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTable_Display_Album">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="5" rowCount="0">
+                        <Column editable="true" title="id" type="java.lang.Object"/>
+                        <Column editable="true" title="titulo" type="java.lang.Object"/>
+                        <Column editable="true" title="grupo" type="java.lang.Object"/>
+                        <Column editable="true" title="duracion" type="java.lang.Object"/>
+                        <Column editable="true" title="productor" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="jButtonDisplayAlbum">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mostrar Todo"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDisplayAlbumActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanelCanciones">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Canciones">
+                <Property name="tabTitle" type="java.lang.String" value="Canciones"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jTextFieldTituloCancion" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                                          <Component id="jLabelTituloCancion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jTextFieldDuracionCancion" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                                          <Component id="jLabelDuracionCancion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jTextFieldEscritor" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                                          <Component id="jLabelEscritor" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabelAlbum" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jComboBoxAlbum" min="-2" pref="135" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jButtonAnnadirCancion" min="-2" pref="131" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Component id="jButtonDisplayCanciones" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonDisplayCanciones" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="410" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelTituloCancion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDuracionCancion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelEscritor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTextFieldTituloCancion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDuracionCancion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEscritor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAnnadirCancion" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="147" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JButton" name="jButtonDisplayCanciones">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mostrar Todo"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDisplayCancionesActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTable_Display_Cancion">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="5" rowCount="0">
+                        <Column editable="true" title="id" type="java.lang.Object"/>
+                        <Column editable="true" title="titulo" type="java.lang.Object"/>
+                        <Column editable="true" title="duracion" type="java.lang.Object"/>
+                        <Column editable="true" title="escritor" type="java.lang.Object"/>
+                        <Column editable="true" title="album" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
+                    </Property>
+                    <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+                      <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
             <Component class="javax.swing.JLabel" name="jLabelTituloCancion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="T&#xed;tulo *"/>
@@ -292,33 +409,19 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldTituloCancion">
             </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldDuracionCancion">
+            </Component>
             <Component class="javax.swing.JLabel" name="jLabelDuracionCancion">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Duraci&#xf3;n"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldDuracionCancion">
+            <Component class="javax.swing.JTextField" name="jTextFieldEscritor">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelEscritor">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Escritor"/>
               </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldEscritor">
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAlbum">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Album"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButtonAnnadirCancion">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
-                <Property name="enabled" type="boolean" value="false"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAnnadirCancionActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxAlbum">
               <Properties>
@@ -335,18 +438,27 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelInsertAlbum1">
+            <Component class="javax.swing.JLabel" name="jLabelAlbum">
               <Properties>
-                <Property name="text" type="java.lang.String" value="A&#xf1;adir cancion"/>
+                <Property name="text" type="java.lang.String" value="Album"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonAnnadirCancion">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
+                <Property name="enabled" type="boolean" value="false"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAnnadirCancionActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelAdmin">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Administrador">
-                <Property name="tabTitle" type="java.lang.String" value="Administrador"/>
+              <JTabbedPaneConstraints tabName="Admin">
+                <Property name="tabTitle" type="java.lang.String" value="Admin"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -380,7 +492,7 @@
                           <Component id="jComboBoxTabla" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldVarSize" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="486" max="32767" attributes="0"/>
+                      <EmptySpace pref="596" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
