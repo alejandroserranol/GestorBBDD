@@ -12,6 +12,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosed" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosed"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -39,22 +42,22 @@
                       <Component id="jLabelMensaje" min="-2" pref="441" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <EmptySpace pref="31" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jLabelMensaje" max="32767" attributes="0"/>
                   <Component id="jButtonDesconexion" max="32767" attributes="0"/>
                   <Component id="jButtonConexion" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" pref="686" max="-2" attributes="0"/>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <Component id="jTabbedPane1" min="-2" pref="598" max="-2" attributes="0"/>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -136,11 +139,11 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButtonDisplayAlbum" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="414" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="jButtonDisplayAlbum" min="-2" pref="54" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="349" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelTituloAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelTituloGrupo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -155,7 +158,7 @@
                           <Component id="jTextFieldProductor" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jButtonAnnadirAlbum" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="143" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -280,55 +283,55 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
+                              <Component id="jButtonDisplayCanciones" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="172" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldTituloCancion" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                                  <Component id="jLabelTituloCancion" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldDuracionCancion" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                                  <Component id="jLabelDuracionCancion" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldEscritor" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
-                                  <Component id="jLabelEscritor" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelAlbum" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jComboBoxAlbum" min="-2" pref="135" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jRadioButtonDuracion" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jRadioButtonAlbum" min="-2" max="-2" attributes="0"/>
+                                      </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jButtonAnnadirCancion" min="-2" pref="131" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="jComboBoxDuracion" min="-2" pref="140" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldSeleccionDuracion" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="jComboBoxSeleccionAlbum" min="-2" pref="307" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="jButtonDisplayCancionSeleccionada" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jLabelSeleccion" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="15" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="jButtonDisplayCanciones" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabelSeleccion" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                      <Component id="jRadioButtonDuracion" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jRadioButtonAlbum" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jLabelTituloCancion" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldTituloCancion" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jButtonAnnadirCancion" alignment="1" pref="150" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jComboBoxDuracion" min="-2" pref="140" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldSeleccionDuracion" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="jComboBoxSeleccionAlbum" min="-2" pref="307" max="-2" attributes="0"/>
+                                  <Component id="jButtonModificar" pref="150" max="32767" attributes="0"/>
+                                  <Component id="jLabelDuracionCancion" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldDuracionCancion" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButtonDisplayCancionSeleccionada" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextFieldEscritor" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="jLabelEscritor" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jComboBoxAlbum" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabelAlbum" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jButtonBorrar" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -338,11 +341,8 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonDisplayCanciones" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelSeleccion" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                      <Component id="jLabelSeleccion" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
@@ -351,15 +351,18 @@
                                   <Component id="jComboBoxSeleccionAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jComboBoxDuracion" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButtonDuracion" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldSeleccionDuracion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="jRadioButtonDuracion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldSeleccionDuracion" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Component id="jButtonDisplayCancionSeleccionada" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Component id="jButtonDisplayCanciones" min="-2" pref="54" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" pref="12" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="340" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -372,11 +375,18 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldTituloCancion" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldDuracionCancion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxAlbum" alignment="0" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jTextFieldEscritor" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jComboBoxAlbum" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonAnnadirCancion" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="156" max="32767" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jButtonBorrar" pref="40" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jButtonAnnadirCancion" pref="40" max="32767" attributes="0"/>
+                              <Component id="jButtonModificar" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -504,6 +514,9 @@
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable_Display_CancionMouseClicked"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -557,6 +570,22 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAnnadirCancionActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="jButtonModificar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Modificar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonModificarActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonBorrar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Borrar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBorrarActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelAdmin">
@@ -578,18 +607,22 @@
                               <Component id="jTextFieldAnnadirCampo" pref="389" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jComboBoxCampo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jComboBoxTabla" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldVarSize" min="-2" pref="112" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButtonAnnadirCampo" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabelAgregarCampos" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="291" max="-2" attributes="0"/>
+                              <Component id="jLabelTipo" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jComboBoxTabla" max="32767" attributes="0"/>
+                          <Component id="jLabelDimension" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jTextFieldVarSize" min="-2" pref="112" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButtonAnnadirCampo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -598,7 +631,11 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabelAgregarCampos" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelAgregarCampos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDimension" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelTipo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonAnnadirCampo" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
@@ -607,7 +644,7 @@
                           <Component id="jComboBoxTabla" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldVarSize" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="599" max="32767" attributes="0"/>
+                      <EmptySpace pref="511" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -659,6 +696,16 @@
             <Component class="javax.swing.JLabel" name="jLabelAgregarCampos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar nuevos campos"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelTipo">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tipo"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelDimension">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Dimensi&#xf3;n"/>
               </Properties>
             </Component>
           </SubComponents>

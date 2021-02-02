@@ -8,6 +8,9 @@ package codigo;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -74,6 +77,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jLabelAlbum = new javax.swing.JLabel();
         jComboBoxAlbum = new javax.swing.JComboBox<>();
         jButtonAnnadirCancion = new javax.swing.JButton();
+        jButtonModificar = new javax.swing.JButton();
+        jButtonBorrar = new javax.swing.JButton();
         jPanelAdmin = new javax.swing.JPanel();
         jTextFieldAnnadirCampo = new javax.swing.JTextField();
         jComboBoxCampo = new javax.swing.JComboBox<>();
@@ -81,8 +86,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jTextFieldVarSize = new javax.swing.JTextField();
         jButtonAnnadirCampo = new javax.swing.JButton();
         jLabelAgregarCampos = new javax.swing.JLabel();
+        jLabelTipo = new javax.swing.JLabel();
+        jLabelDimension = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jButtonConexion.setText("Conectar a la BBDD");
         jButtonConexion.addActionListener(new java.awt.event.ActionListener() {
@@ -168,11 +180,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jPanelAlbumesLayout.setVerticalGroup(
             jPanelAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAlbumesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButtonDisplayAlbum)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(33, 33, 33)
+                .addComponent(jButtonDisplayAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanelAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTituloAlbum)
                     .addComponent(jLabelTituloGrupo)
@@ -185,7 +197,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jTextFieldDuracionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldProductor, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAnnadirAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addGap(53, 53, 53))
         );
 
         jTabbedPane1.addTab("Álbumes", jPanelAlbumes);
@@ -226,6 +238,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 "id", "titulo", "duracion", "escritor", "album"
             }
         ));
+        jTable_Display_Cancion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable_Display_CancionMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable_Display_Cancion);
 
         jLabelTituloCancion.setText("Título *");
@@ -246,6 +263,20 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jButtonModificar.setText("Modificar");
+        jButtonModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModificarActionPerformed(evt);
+            }
+        });
+
+        jButtonBorrar.setText("Borrar");
+        jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBorrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelCancionesLayout = new javax.swing.GroupLayout(jPanelCanciones);
         jPanelCanciones.setLayout(jPanelCancionesLayout);
         jPanelCancionesLayout.setHorizontalGroup(
@@ -255,53 +286,51 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane2)
                     .addGroup(jPanelCancionesLayout.createSequentialGroup()
+                        .addComponent(jButtonDisplayCanciones)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
                         .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldTituloCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelTituloCancion))
+                            .addGroup(jPanelCancionesLayout.createSequentialGroup()
+                                .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButtonDuracion)
+                                    .addComponent(jRadioButtonAlbum))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanelCancionesLayout.createSequentialGroup()
+                                        .addComponent(jComboBoxDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldSeleccionDuracion))
+                                    .addComponent(jComboBoxSeleccionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonDisplayCancionSeleccionada))
+                            .addComponent(jLabelSeleccion)))
+                    .addGroup(jPanelCancionesLayout.createSequentialGroup()
+                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelTituloCancion)
+                            .addComponent(jTextFieldTituloCancion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonAnnadirCancion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonModificar, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addComponent(jLabelDuracionCancion)
+                            .addComponent(jTextFieldDuracionCancion))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldDuracionCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelDuracionCancion))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabelEscritor))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelAlbum)
+                            .addComponent(jComboBoxAlbum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanelCancionesLayout.createSequentialGroup()
-                                .addComponent(jComboBoxAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButtonAnnadirCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 15, Short.MAX_VALUE))
-                    .addGroup(jPanelCancionesLayout.createSequentialGroup()
-                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanelCancionesLayout.createSequentialGroup()
-                                .addComponent(jButtonDisplayCanciones)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabelSeleccion))
-                            .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jRadioButtonDuracion)
-                                .addComponent(jRadioButtonAlbum)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanelCancionesLayout.createSequentialGroup()
-                                .addComponent(jComboBoxDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldSeleccionDuracion))
-                            .addComponent(jComboBoxSeleccionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonDisplayCancionSeleccionada)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jLabelAlbum)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jButtonBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanelCancionesLayout.setVerticalGroup(
             jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCancionesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonDisplayCanciones)
-                    .addComponent(jLabelSeleccion))
+                .addGap(12, 12, 12)
+                .addComponent(jLabelSeleccion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCancionesLayout.createSequentialGroup()
@@ -309,12 +338,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(jRadioButtonAlbum)
                             .addComponent(jComboBoxSeleccionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBoxDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButtonDuracion)
-                            .addComponent(jTextFieldSeleccionDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButtonDisplayCancionSeleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 12, Short.MAX_VALUE)
+                            .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jRadioButtonDuracion)
+                                .addComponent(jTextFieldSeleccionDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jButtonDisplayCancionSeleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonDisplayCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -326,10 +357,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                 .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldTituloCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldDuracionCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonAnnadirCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(156, Short.MAX_VALUE))
+                    .addComponent(jComboBoxAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonBorrar, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                    .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jButtonAnnadirCancion, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+                        .addComponent(jButtonModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Canciones", jPanelCanciones);
@@ -348,6 +384,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabelAgregarCampos.setText("Agregar nuevos campos");
 
+        jLabelTipo.setText("Tipo");
+
+        jLabelDimension.setText("Dimensión");
+
         javax.swing.GroupLayout jPanelAdminLayout = new javax.swing.GroupLayout(jPanelAdmin);
         jPanelAdmin.setLayout(jPanelAdminLayout);
         jPanelAdminLayout.setHorizontalGroup(
@@ -358,23 +398,29 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addGroup(jPanelAdminLayout.createSequentialGroup()
                         .addComponent(jTextFieldAnnadirCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jComboBoxTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldVarSize, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonAnnadirCampo))
+                        .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelAdminLayout.createSequentialGroup()
                         .addComponent(jLabelAgregarCampos)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(291, 291, 291)
+                        .addComponent(jLabelTipo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBoxTabla, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelDimension, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jTextFieldVarSize, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonAnnadirCampo)
                 .addContainerGap())
         );
         jPanelAdminLayout.setVerticalGroup(
             jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAdminLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelAgregarCampos)
+                .addGroup(jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAgregarCampos)
+                    .addComponent(jLabelDimension)
+                    .addComponent(jLabelTipo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAnnadirCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -382,7 +428,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldVarSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(599, Short.MAX_VALUE))
+                .addContainerGap(511, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Admin", jPanelAdmin);
@@ -401,19 +447,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jButtonDesconexion)
                         .addGap(18, 18, 18)
                         .addComponent(jLabelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonDesconexion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonConexion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -569,6 +615,61 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonDisplayCancionSeleccionadaActionPerformed
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        
+        try {
+            if(!conector.conexion.isClosed()){
+                conector.cerrarConexion();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(VentanaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_formWindowClosed
+
+    private void jTable_Display_CancionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_Display_CancionMouseClicked
+
+        //Set data to their textField
+        DefaultTableModel tblModel = (DefaultTableModel) jTable_Display_Cancion.getModel();
+
+        //Set data to text fiel when raw is selected
+        String titulo = tblModel.getValueAt(jTable_Display_Cancion.getSelectedRow(), 1).toString();
+        String duracion = tblModel.getValueAt(jTable_Display_Cancion.getSelectedRow(), 2).toString();
+        String escritor = tblModel.getValueAt(jTable_Display_Cancion.getSelectedRow(), 3).toString();
+        String album = tblModel.getValueAt(jTable_Display_Cancion.getSelectedRow(), 4).toString();
+
+        //set to textfield
+        this.jTextFieldTituloCancion.setText(titulo);
+        this.jTextFieldDuracionCancion.setText(duracion);
+        this.jTextFieldEscritor.setText(escritor);
+        this.jComboBoxAlbum.setSelectedIndex(Integer.parseInt(album)-1);
+        
+        
+
+    }//GEN-LAST:event_jTable_Display_CancionMouseClicked
+
+    private void jButtonModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarActionPerformed
+        
+        //Set data to their textField
+        DefaultTableModel tblModel = (DefaultTableModel) jTable_Display_Cancion.getModel();
+        //if single row is selected than update
+        String id = tblModel.getValueAt(jTable_Display_Cancion.getSelectedRow(), 0).toString();
+        String titulo = this.jTextFieldTituloCancion.getText();
+        String duracion = this.jTextFieldDuracionCancion.getText();
+        String escritor = this.jTextFieldEscritor.getText();
+        int album = this.jComboBoxAlbum.getSelectedIndex();
+        
+        conector.updateCancion(id, titulo, duracion, escritor, album);
+
+        
+    }//GEN-LAST:event_jButtonModificarActionPerformed
+
+    private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
+        
+        
+        
+    }//GEN-LAST:event_jButtonBorrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -594,11 +695,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAnnadirAlbum;
     private javax.swing.JButton jButtonAnnadirCampo;
     private javax.swing.JButton jButtonAnnadirCancion;
+    private javax.swing.JButton jButtonBorrar;
     private javax.swing.JButton jButtonConexion;
     private javax.swing.JButton jButtonDesconexion;
     private javax.swing.JButton jButtonDisplayAlbum;
     private javax.swing.JButton jButtonDisplayCancionSeleccionada;
     private javax.swing.JButton jButtonDisplayCanciones;
+    private javax.swing.JButton jButtonModificar;
     private javax.swing.JComboBox<String> jComboBoxAlbum;
     private javax.swing.JComboBox<String> jComboBoxCampo;
     private javax.swing.JComboBox<String> jComboBoxDuracion;
@@ -606,10 +709,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBoxTabla;
     private javax.swing.JLabel jLabelAgregarCampos;
     private javax.swing.JLabel jLabelAlbum;
+    private javax.swing.JLabel jLabelDimension;
     private javax.swing.JLabel jLabelDuracionCancion;
     private javax.swing.JLabel jLabelEscritor;
     private javax.swing.JLabel jLabelMensaje;
     private javax.swing.JLabel jLabelSeleccion;
+    private javax.swing.JLabel jLabelTipo;
     private javax.swing.JLabel jLabelTituloAlbum;
     private javax.swing.JLabel jLabelTituloCancion;
     private javax.swing.JLabel jLabelTituloDuracionAlbum;

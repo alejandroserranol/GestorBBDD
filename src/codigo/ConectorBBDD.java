@@ -231,6 +231,31 @@ public class ConectorBBDD {
         } 
         
     }
+
+    public void updateCancion(String _id, String _titulo, String _duracion, String _escritor, int _album) {
+        
+        Statement sta;
+        String query = "UPDATE cancion SET titulo= ?, duracion= ?, escritor= ?, album = ? WHERE id= ?;";
+        try {
+            sta = conexion.createStatement();
+            sta.execute("SET foreign_key_checks = 0;");
+            PreparedStatement pst = conexion.prepareStatement(query);
+            pst.setString(1, _titulo);
+            pst.setString(2, _duracion);
+            pst.setString(3, _escritor);
+            pst.setInt(4, _album);
+            pst.setString(5, _id);
+            sta.execute("SET foreign_key_checks = 1;");
+            
+            pst.executeUpdate();
+            
+            pst.close();
+            sta.close();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }
     
     
     

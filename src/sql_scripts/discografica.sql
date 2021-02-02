@@ -3,7 +3,6 @@ CREATE DATABASE IF NOT EXISTS `discografica`;
 USE `discografica`;
 
 DROP TABLE IF EXISTS `cancion`;
-DROP TABLE IF EXISTS `album`;
 
 CREATE TABLE `album` (
 	`id` INTEGER(3) NOT NULL AUTO_INCREMENT,
@@ -13,6 +12,8 @@ CREATE TABLE `album` (
     `productor` VARCHAR(45) DEFAULT NULL,
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `album`;
 
 CREATE TABLE `cancion` (
 	`id` INTEGER(3) NOT NULL AUTO_INCREMENT,
