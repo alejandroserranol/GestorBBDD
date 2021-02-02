@@ -36,11 +36,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroupSeleccion = new javax.swing.ButtonGroup();
         jLabelMensaje = new javax.swing.JLabel();
         jButtonConexion = new javax.swing.JButton();
         jButtonDesconexion = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanelAlbumes = new javax.swing.JPanel();
+        jButtonDisplayAlbum = new javax.swing.JButton();
         jLabelTituloAlbum = new javax.swing.JLabel();
         jTextFieldTituloAlbum = new javax.swing.JTextField();
         jLabelTituloGrupo = new javax.swing.JLabel();
@@ -52,19 +54,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButtonAnnadirAlbum = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_Display_Album = new javax.swing.JTable();
-        jButtonDisplayAlbum = new javax.swing.JButton();
         jPanelCanciones = new javax.swing.JPanel();
         jButtonDisplayCanciones = new javax.swing.JButton();
+        jLabelSeleccion = new javax.swing.JLabel();
+        jRadioButtonAlbum = new javax.swing.JRadioButton();
+        jComboBoxSeleccionAlbum = new javax.swing.JComboBox<>();
+        jRadioButtonDuracion = new javax.swing.JRadioButton();
+        jTextFieldSeleccionDuracion = new javax.swing.JTextField();
+        jComboBoxDuracion = new javax.swing.JComboBox<>();
+        jButtonDisplayCancionSeleccionada = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable_Display_Cancion = new javax.swing.JTable();
         jLabelTituloCancion = new javax.swing.JLabel();
         jTextFieldTituloCancion = new javax.swing.JTextField();
-        jTextFieldDuracionCancion = new javax.swing.JTextField();
         jLabelDuracionCancion = new javax.swing.JLabel();
-        jTextFieldEscritor = new javax.swing.JTextField();
+        jTextFieldDuracionCancion = new javax.swing.JTextField();
         jLabelEscritor = new javax.swing.JLabel();
-        jComboBoxAlbum = new javax.swing.JComboBox<>();
+        jTextFieldEscritor = new javax.swing.JTextField();
         jLabelAlbum = new javax.swing.JLabel();
+        jComboBoxAlbum = new javax.swing.JComboBox<>();
         jButtonAnnadirCancion = new javax.swing.JButton();
         jPanelAdmin = new javax.swing.JPanel();
         jTextFieldAnnadirCampo = new javax.swing.JTextField();
@@ -72,6 +80,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jComboBoxTabla = new javax.swing.JComboBox<>();
         jTextFieldVarSize = new javax.swing.JTextField();
         jButtonAnnadirCampo = new javax.swing.JButton();
+        jLabelAgregarCampos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,6 +96,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButtonDesconexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDesconexionActionPerformed(evt);
+            }
+        });
+
+        jButtonDisplayAlbum.setText("Mostrar Todo");
+        jButtonDisplayAlbum.setEnabled(false);
+        jButtonDisplayAlbum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDisplayAlbumActionPerformed(evt);
             }
         });
 
@@ -115,14 +132,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(jTable_Display_Album);
-
-        jButtonDisplayAlbum.setText("Mostrar Todo");
-        jButtonDisplayAlbum.setEnabled(false);
-        jButtonDisplayAlbum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDisplayAlbumActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanelAlbumesLayout = new javax.swing.GroupLayout(jPanelAlbumes);
         jPanelAlbumes.setLayout(jPanelAlbumesLayout);
@@ -189,6 +198,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabelSeleccion.setText("Buscar cancion:");
+
+        buttonGroupSeleccion.add(jRadioButtonAlbum);
+        jRadioButtonAlbum.setText("Album");
+
+        jComboBoxSeleccionAlbum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        buttonGroupSeleccion.add(jRadioButtonDuracion);
+        jRadioButtonDuracion.setText("Duración");
+
+        jComboBoxDuracion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jButtonDisplayCancionSeleccionada.setText("Mostrar");
+        jButtonDisplayCancionSeleccionada.setEnabled(false);
+        jButtonDisplayCancionSeleccionada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDisplayCancionSeleccionadaActionPerformed(evt);
+            }
+        });
+
         jTable_Display_Cancion.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -205,9 +234,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabelEscritor.setText("Escritor");
 
-        jComboBoxAlbum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabelAlbum.setText("Album");
+
+        jComboBoxAlbum.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButtonAnnadirCancion.setText("Añadir");
         jButtonAnnadirCancion.setEnabled(false);
@@ -227,36 +256,66 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(jPanelCancionesLayout.createSequentialGroup()
                         .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldTituloCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelTituloCancion))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldDuracionCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelDuracionCancion))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelEscritor))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelAlbum)
                             .addGroup(jPanelCancionesLayout.createSequentialGroup()
-                                .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldTituloCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelTituloCancion))
+                                .addComponent(jComboBoxAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldDuracionCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelDuracionCancion))
+                                .addComponent(jButtonAnnadirCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 15, Short.MAX_VALUE))
+                    .addGroup(jPanelCancionesLayout.createSequentialGroup()
+                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelCancionesLayout.createSequentialGroup()
+                                .addComponent(jButtonDisplayCanciones)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabelEscritor))
+                                .addComponent(jLabelSeleccion))
+                            .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jRadioButtonDuracion)
+                                .addComponent(jRadioButtonAlbum)))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelCancionesLayout.createSequentialGroup()
+                                .addComponent(jComboBoxDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelAlbum)
-                                    .addGroup(jPanelCancionesLayout.createSequentialGroup()
-                                        .addComponent(jComboBoxAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jButtonAnnadirCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jButtonDisplayCanciones))
-                        .addGap(0, 5, Short.MAX_VALUE)))
+                                .addComponent(jTextFieldSeleccionDuracion))
+                            .addComponent(jComboBoxSeleccionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonDisplayCancionSeleccionada)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelCancionesLayout.setVerticalGroup(
             jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCancionesLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonDisplayCanciones)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonDisplayCanciones)
+                    .addComponent(jLabelSeleccion))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCancionesLayout.createSequentialGroup()
+                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButtonAlbum)
+                            .addComponent(jComboBoxSeleccionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBoxDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButtonDuracion)
+                            .addComponent(jTextFieldSeleccionDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButtonDisplayCancionSeleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 12, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTituloCancion)
@@ -270,7 +329,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonAnnadirCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(156, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Canciones", jPanelCanciones);
@@ -279,7 +338,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jComboBoxTabla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButtonAnnadirCampo.setText("Agregar nuevos campos");
+        jButtonAnnadirCampo.setText("Añadir");
         jButtonAnnadirCampo.setEnabled(false);
         jButtonAnnadirCampo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -287,34 +346,43 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jLabelAgregarCampos.setText("Agregar nuevos campos");
+
         javax.swing.GroupLayout jPanelAdminLayout = new javax.swing.GroupLayout(jPanelAdmin);
         jPanelAdmin.setLayout(jPanelAdminLayout);
         jPanelAdminLayout.setHorizontalGroup(
             jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAdminLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTextFieldAnnadirCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBoxTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextFieldVarSize, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonAnnadirCampo)
-                .addGap(62, 62, 62))
+                .addGroup(jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAdminLayout.createSequentialGroup()
+                        .addComponent(jTextFieldAnnadirCampo, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBoxTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldVarSize, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonAnnadirCampo))
+                    .addGroup(jPanelAdminLayout.createSequentialGroup()
+                        .addComponent(jLabelAgregarCampos)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanelAdminLayout.setVerticalGroup(
             jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAdminLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addContainerGap()
+                .addComponent(jLabelAgregarCampos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAnnadirCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldAnnadirCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldVarSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(596, Short.MAX_VALUE))
+                .addContainerGap(599, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Admin", jPanelAdmin);
@@ -325,14 +393,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonConexion, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonDesconexion)
                         .addGap(18, 18, 18)
-                        .addComponent(jLabelMensaje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 773, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -363,6 +431,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             this.jButtonAnnadirCancion.setEnabled(false);
             this.jButtonDisplayAlbum.setEnabled(false);
             this.jButtonDisplayCanciones.setEnabled(false);
+            this.jButtonDisplayCancionSeleccionada.setEnabled(false);
         } else {
             this.jLabelMensaje.setText("Conectado a discografica.");
             this.jButtonConexion.setEnabled(false);
@@ -373,6 +442,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             this.jButtonAnnadirCancion.setEnabled(true);
             this.jButtonDisplayAlbum.setEnabled(true);
             this.jButtonDisplayCanciones.setEnabled(true);
+            this.jButtonDisplayCancionSeleccionada.setEnabled(true);
         }
 
         this.jComboBoxCampo.removeAllItems();
@@ -390,9 +460,17 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         }
 
         this.jComboBoxAlbum.removeAllItems();
+        this.jComboBoxSeleccionAlbum.removeAllItems();
         ArrayList<String> titulosAlbum = conector.getTitulosAlbum();
         if (titulosAlbum != null) {
             titulosAlbum.forEach((elemento) -> this.jComboBoxAlbum.addItem(elemento));
+            titulosAlbum.forEach((elemento) -> this.jComboBoxSeleccionAlbum.addItem(elemento));
+        }
+
+        this.jComboBoxDuracion.removeAllItems();
+        String[] ordenDuracion = {"Ascendente","Descendente"};
+        for (String elemento : ordenDuracion) {
+            this.jComboBoxDuracion.addItem(elemento);
         }
 
     }//GEN-LAST:event_jButtonConexionActionPerformed
@@ -481,6 +559,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButtonAnnadirCancionActionPerformed
 
+    private void jButtonDisplayCancionSeleccionadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDisplayCancionSeleccionadaActionPerformed
+        
+        if(this.jRadioButtonAlbum.isSelected()){
+            show_cancionFiltroAlbum(this.jComboBoxSeleccionAlbum.getSelectedIndex());
+        } else if (this.jRadioButtonDuracion.isSelected()) {
+            show_cancionFiltroDuracion(this.jTextFieldSeleccionDuracion.getText() ,this.jComboBoxDuracion.getSelectedIndex());
+        }
+        
+    }//GEN-LAST:event_jButtonDisplayCancionSeleccionadaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -502,20 +590,26 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroupSeleccion;
     private javax.swing.JButton jButtonAnnadirAlbum;
     private javax.swing.JButton jButtonAnnadirCampo;
     private javax.swing.JButton jButtonAnnadirCancion;
     private javax.swing.JButton jButtonConexion;
     private javax.swing.JButton jButtonDesconexion;
     private javax.swing.JButton jButtonDisplayAlbum;
+    private javax.swing.JButton jButtonDisplayCancionSeleccionada;
     private javax.swing.JButton jButtonDisplayCanciones;
     private javax.swing.JComboBox<String> jComboBoxAlbum;
     private javax.swing.JComboBox<String> jComboBoxCampo;
+    private javax.swing.JComboBox<String> jComboBoxDuracion;
+    private javax.swing.JComboBox<String> jComboBoxSeleccionAlbum;
     private javax.swing.JComboBox<String> jComboBoxTabla;
+    private javax.swing.JLabel jLabelAgregarCampos;
     private javax.swing.JLabel jLabelAlbum;
     private javax.swing.JLabel jLabelDuracionCancion;
     private javax.swing.JLabel jLabelEscritor;
     private javax.swing.JLabel jLabelMensaje;
+    private javax.swing.JLabel jLabelSeleccion;
     private javax.swing.JLabel jLabelTituloAlbum;
     private javax.swing.JLabel jLabelTituloCancion;
     private javax.swing.JLabel jLabelTituloDuracionAlbum;
@@ -524,6 +618,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelAdmin;
     private javax.swing.JPanel jPanelAlbumes;
     private javax.swing.JPanel jPanelCanciones;
+    private javax.swing.JRadioButton jRadioButtonAlbum;
+    private javax.swing.JRadioButton jRadioButtonDuracion;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -535,6 +631,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldEscritor;
     private javax.swing.JTextField jTextFieldGrupo;
     private javax.swing.JTextField jTextFieldProductor;
+    private javax.swing.JTextField jTextFieldSeleccionDuracion;
     private javax.swing.JTextField jTextFieldTituloAlbum;
     private javax.swing.JTextField jTextFieldTituloCancion;
     private javax.swing.JTextField jTextFieldVarSize;
@@ -560,6 +657,38 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     public void show_cancion() {
 
         ArrayList<Cancion> list = conector.cancionList();
+        DefaultTableModel model = (DefaultTableModel) jTable_Display_Cancion.getModel();
+        model.setRowCount(0);
+        Object[] row = new Object[5];
+        for (int i = 0; i < list.size(); i++) {
+            row[0] = list.get(i).getId();
+            row[1] = list.get(i).getTitulo();
+            row[2] = list.get(i).getDuracion();
+            row[3] = list.get(i).getEscritor();
+            row[4] = list.get(i).getAlbum();
+            model.addRow(row);
+        }
+    }
+    
+    public void show_cancionFiltroAlbum(int _album) {
+        System.out.println(_album);
+        ArrayList<Cancion> list = conector.cancionListFiltroAlbum(_album);
+        DefaultTableModel model = (DefaultTableModel) jTable_Display_Cancion.getModel();
+        model.setRowCount(0);
+        Object[] row = new Object[5];
+        for (int i = 0; i < list.size(); i++) {
+            row[0] = list.get(i).getId();
+            row[1] = list.get(i).getTitulo();
+            row[2] = list.get(i).getDuracion();
+            row[3] = list.get(i).getEscritor();
+            row[4] = list.get(i).getAlbum();
+            model.addRow(row);
+        }
+    }
+    
+    public void show_cancionFiltroDuracion(String _duracion, int _orden) {
+
+        ArrayList<Cancion> list = conector.cancionListFiltroDuracion(_duracion, _orden);
         DefaultTableModel model = (DefaultTableModel) jTable_Display_Cancion.getModel();
         model.setRowCount(0);
         Object[] row = new Object[5];

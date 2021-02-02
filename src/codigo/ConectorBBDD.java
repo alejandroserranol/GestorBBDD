@@ -7,6 +7,7 @@ package codigo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -50,14 +51,17 @@ public class ConectorBBDD {
     public ArrayList<Album> albumList() {
         ArrayList<Album> albumesList = new ArrayList<>();
         try {
-            String query1 = "SELECT * FROM album;";
+            String query = "SELECT * FROM album;";
             Statement st = conexion.createStatement();
-            ResultSet rs = st.executeQuery(query1);
+            ResultSet rs = st.executeQuery(query);
             Album album;
             while(rs.next()){
                 album = new Album(rs.getInt("id"), rs.getString("titulo"), rs.getString("grupo"), rs.getTime("duracion"), rs.getString("productor"));
                 albumesList.add(album);
             }
+            
+            rs.close();
+            st.close();
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
@@ -67,14 +71,68 @@ public class ConectorBBDD {
     public ArrayList<Cancion> cancionList() {
         ArrayList<Cancion> cancionesList = new ArrayList<>();
         try {
-            String query1 = "SELECT * FROM cancion;";
+            String query = "SELECT * FROM cancion;";
             Statement st = conexion.createStatement();
-            ResultSet rs = st.executeQuery(query1);
+            ResultSet rs = st.executeQuery(query);
             Cancion cancion;
             while(rs.next()){
                 cancion = new Cancion(rs.getInt("id"), rs.getString("titulo"), rs.getTime("duracion"), rs.getString("escritor"), rs.getInt("album"));
                 cancionesList.add(cancion);
             }
+            
+            rs.close();
+            st.close();            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return cancionesList;        
+    }
+    
+    public ArrayList<Cancion> cancionListFiltroAlbum(int _album) {
+        ArrayList<Cancion> cancionesList = new ArrayList<>();
+        String query = "SELECT * FROM cancion WHERE album= ?;";
+        try {
+            PreparedStatement pst = conexion.prepareStatement(query);            
+            pst.setString(1, String.valueOf(_album+1));
+            
+            ResultSet rs = pst.executeQuery();
+            
+            Cancion cancion;
+            while(rs.next()){
+                cancion = new Cancion(rs.getInt("id"), rs.getString("titulo"), rs.getTime("duracion"), rs.getString("escritor"), rs.getInt("album"));
+                cancionesList.add(cancion);
+            }
+            
+            rs.close();
+            pst.close();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return cancionesList;        
+    }
+    
+    public ArrayList<Cancion> cancionListFiltroDuracion(String _duracion, int _orden) {
+        String query = "";
+        ArrayList<Cancion> cancionesList = new ArrayList<>();
+        if(_orden == 0) {
+            query = "SELECT * FROM cancion WHERE duracion< ? ORDER BY duracion;";
+        } else if(_orden == 1){
+            query = "SELECT * FROM cancion WHERE duracion< ? ORDER BY duracion DESC;";
+        }
+        try {
+            PreparedStatement pst = conexion.prepareStatement(query);            
+            pst.setString(1, String.valueOf(_duracion));
+            
+            ResultSet rs = pst.executeQuery();
+            
+            Cancion cancion;
+            while(rs.next()){
+                cancion = new Cancion(rs.getInt("id"), rs.getString("titulo"), rs.getTime("duracion"), rs.getString("escritor"), rs.getInt("album"));
+                cancionesList.add(cancion);
+            }
+            
+            rs.close();
+            pst.close();
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
@@ -102,39 +160,6 @@ public class ConectorBBDD {
                 return -2;
             }
         }        
-    }    
-
-    public String consultaAlbum_Statement(String _dbName) {
-        
-        String cadena_resultado = "";
-        Statement sta;
-        try{
-            sta = conexion.createStatement();
-            String query = "SELECT * FROM " + _dbName + ";";
-            ResultSet rs = sta.executeQuery(query);
-                
-            if(_dbName.equals("album")){
-                while (rs.next()){
-                    cadena_resultado += "ID: " + rs.getInt("id") +
-                                    ", Título: " + rs.getString("titulo") +
-                                    ", Grupo: " + rs.getString("grupo") +
-                                    ", Duracion: " + rs.getTime("duracion") +
-                                    ", Productor: " + rs.getString("productor") + "\n";
-                }
-            } else {
-                while (rs.next()){
-                    cadena_resultado += "ID: " + rs.getInt("id") +
-                                    ", Título: " + rs.getString("titulo") +
-                                    ",Duracion: " + rs.getTime("duracion") +
-                                    ", Escritor: " + rs.getString("escritor") +
-                                    ", Album: " + rs.getString("album") + "\n";
-                }
-            }
-            return cadena_resultado;
-        } catch (Exception e){
-            return "Error al mostrar contenido de la base de datos.";
-        }
-        
     }
 
     public ArrayList<String> getTitulosAlbum() {
@@ -149,7 +174,9 @@ public class ConectorBBDD {
             while (rs.next()){
                 aux.add(rs.getString("titulo"));
             }                
-                
+            
+            rs.close();
+            sta.close();
             return aux;
         } catch (Exception e){
             System.out.println("Error al mostrar contenido de la base de datos.");
