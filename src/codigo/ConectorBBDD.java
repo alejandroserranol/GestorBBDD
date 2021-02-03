@@ -11,6 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -93,7 +96,7 @@ public class ConectorBBDD {
         String query = "SELECT * FROM cancion WHERE album= ?;";
         try {
             PreparedStatement pst = conexion.prepareStatement(query);            
-            pst.setString(1, String.valueOf(_album+1));
+            pst.setString(1, String.valueOf(_album));
             
             ResultSet rs = pst.executeQuery();
             
@@ -189,7 +192,6 @@ public class ConectorBBDD {
         
         Statement sta;
         try {
-            System.out.println(_titulo + "\t" + _grupo + "\t" + _duracion  + "\t" + _productor);
             sta = conexion.createStatement();
             sta.executeUpdate("INSERT INTO album (id, titulo, grupo, duracion, productor) "
                             + "VALUE (NULL, '" +
@@ -240,17 +242,72 @@ public class ConectorBBDD {
             sta = conexion.createStatement();
             sta.execute("SET foreign_key_checks = 0;");
             PreparedStatement pst = conexion.prepareStatement(query);
-            pst.setString(1, _titulo);
+            pst.setString(1, String.valueOf(_album+1)+_titulo.substring(1));
             pst.setString(2, _duracion);
             pst.setString(3, _escritor);
-            pst.setInt(4, _album);
+            pst.setInt(4, _album+1);
             pst.setString(5, _id);
             sta.execute("SET foreign_key_checks = 1;");
             
             pst.executeUpdate();
             
-            pst.close();
             sta.close();
+            pst.close();
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }
+
+    public void deleteCancion(int _id) {
+        
+        Statement sta;
+        try {
+            sta = conexion.createStatement();
+            sta.execute("SET foreign_key_checks = 0;");
+            sta.execute("DELETE FROM cancion WHERE id='"+_id+"';");
+            sta.execute("SET foreign_key_checks = 1;");
+            
+            sta.close();
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        
+    }
+
+    public void updateAlbum(String _id, String _titulo, String _grupo, String _duracion, String _productor) {
+        
+        String query = "UPDATE album SET titulo= ?, grupo= ?, duracion= ?, productor = ? WHERE id= ?;";
+        try {
+            PreparedStatement pst = conexion.prepareStatement(query);
+            pst.setString(1, _titulo);
+            pst.setString(2, _grupo);
+            pst.setString(3, _duracion);
+            pst.setString(4, _productor);
+            pst.setString(5, _id);
+            
+            pst.executeUpdate();
+            
+            pst.close();
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }
+
+    public void deleteAlbum(int _id) {
+        
+        Statement sta;
+        try {
+            sta = conexion.createStatement();
+            sta.execute("DELETE FROM album WHERE id='"+_id+"';");
+            
+            sta.close();
+            
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, e);
         }
