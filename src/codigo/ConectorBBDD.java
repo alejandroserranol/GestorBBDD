@@ -303,7 +303,7 @@ public class ConectorBBDD {
             sta = conexion.createStatement();
             sta.execute("SET foreign_key_checks = 0;");
             PreparedStatement pst = conexion.prepareStatement(query);
-            pst.setString(1, String.valueOf(_album+1)+_titulo.substring(1));
+            pst.setString(1, _titulo);
             pst.setString(2, _duracion);
             pst.setString(3, _escritor);
             pst.setInt(4, _album+1);
@@ -344,36 +344,6 @@ public class ConectorBBDD {
         }
     }
 
-    /**
-     * @see Permite modificar la información almacenada en la tabla album de la base de datos.
-     * @param _id
-     * @param _titulo
-     * @param _grupo
-     * @param _duracion
-     * @param _productor
-     * @return int para manejar los errores que se puedan producir.
-     */
-    public int updateAlbum(String _id, String _titulo, String _grupo, String _duracion, String _productor) {
-        
-        String query = "UPDATE album SET titulo= ?, grupo= ?, duracion= ?, productor = ? WHERE id= ?;";
-        try {
-            PreparedStatement pst = conexion.prepareStatement(query);
-            pst.setString(1, _titulo);
-            pst.setString(2, _grupo);
-            pst.setString(3, _duracion);
-            pst.setString(4, _productor);
-            pst.setString(5, _id);
-            
-            pst.executeUpdate();
-            
-            pst.close();
-            
-            return 0;
-        } catch (Exception e){
-            return -1;
-        }
-        
-    }
     
     /**
      * @see Permite eliminar un album de la base de datos.
