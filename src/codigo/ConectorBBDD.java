@@ -11,20 +11,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * Gestionar_JAXB --- Clase utilizada para gestionar la conexión a la base de datos.
  * @author Alejandro Serrano Loredo
  */
 public class ConectorBBDD {
     
     Connection conexion = null;
     
+    /**
+     * @see Realiza la conexión a la base de datos.
+     * @return int para manejar los errores que se puedan producir.
+     */
     public int ConectarBBDD(){
         try {
             String urlBBDD = "jdbc:mysql://localhost:3306/discografica";
@@ -41,6 +42,10 @@ public class ConectorBBDD {
         }
     }
     
+    /**
+     * @see Cierra la conexión a la base de datos.
+     * @return int para manejar los errores que se puedan producir.
+     */
     public int cerrarConexion(){
         try {
             conexion.close();
@@ -51,6 +56,10 @@ public class ConectorBBDD {
         }        
     }
     
+    /**
+     * @see  Obtiene todos los álbumes de la base de datos y los devuelve para su visualización
+     * @return  arraylist con la información a mostrar en la tabla.
+     */
     public ArrayList<Album> albumList() {
         ArrayList<Album> albumesList = new ArrayList<>();
         try {
@@ -71,6 +80,10 @@ public class ConectorBBDD {
         return albumesList;
     }
     
+    /**
+     * @see  Obtiene todos las canciones de la base de datos y los devuelve para su visualización
+     * @return  arraylist con la información a mostrar en la tabla.
+     */
     public ArrayList<Cancion> cancionList() {
         ArrayList<Cancion> cancionesList = new ArrayList<>();
         try {
@@ -91,6 +104,11 @@ public class ConectorBBDD {
         return cancionesList;        
     }
     
+    /**
+     * @see  Obtiene todos las canciones del album seleccionado de la base de datos y los devuelve para su visualización
+     * @param _album int con el album seleccionado para la consulta.
+     * @return  arraylist con la información a mostrar en la tabla.
+     */
     public ArrayList<Cancion> cancionListFiltroAlbum(int _album) {
         ArrayList<Cancion> cancionesList = new ArrayList<>();
         String query = "SELECT * FROM cancion WHERE album= ?;";
@@ -114,6 +132,13 @@ public class ConectorBBDD {
         return cancionesList;        
     }
     
+    /**
+     * @see  Obtiene todos las canciones con una duración inferior a la seleccionada
+     *       de la base de datos y los devuelve para su visualización
+     * @param _duracion String con la duración introducida para la consulta.
+     * @param _orden int con orden, ascendente o descendente, seleccionado para la consulta.
+     * @return  arraylist con la información a mostrar en la tabla.
+     */
     public ArrayList<Cancion> cancionListFiltroDuracion(String _duracion, int _orden) {
         String query = "";
         ArrayList<Cancion> cancionesList = new ArrayList<>();
@@ -142,7 +167,14 @@ public class ConectorBBDD {
         return cancionesList;        
     }
     
-    
+    /**
+     * @see Permite modificar la estructura de la base de datos para añadir un campo a las tablas.
+     * @param _tabla tabla seleccionada.
+     * @param _nombreColumna nombre del campo a añadir.
+     * @param _tipoDato INTEGER, VARCHAR, etc.
+     * @param _varSize Dimensión de la variable.
+     * @return int para manejar los errores que se puedan producir.
+     */
     public int annadirCampo(String _tabla, String _nombreColumna, String _tipoDato, String _varSize){
         String tipoDato = "";
         if(_varSize.length() > 0){
@@ -165,6 +197,10 @@ public class ConectorBBDD {
         }        
     }
 
+    /**
+     * @see Devuelve los títulos de los álbumes.
+     * @return arraylist con el título de los álbumes.
+     */
     public ArrayList<String> getTitulosAlbum() {
         
         ArrayList<String> aux = new ArrayList<>();
@@ -188,6 +224,14 @@ public class ConectorBBDD {
         
     }
     
+    /**
+     * @see Permite añadir un álbum a la base de datos.
+     * @param _titulo
+     * @param _grupo
+     * @param _duracion
+     * @param _productor
+     * @return int para manejar los errores que se puedan producir.
+     */
     public int annadirAlbum(String _titulo, String _grupo, String _duracion, String _productor) {
         
         Statement sta;
@@ -211,6 +255,14 @@ public class ConectorBBDD {
         
     }
 
+    /**
+     * @see Permite añadir canciones a la base de datos.
+     * @param _titulo
+     * @param _duracion
+     * @param _escritor
+     * @param _album int con la clave primaria de la tabla album.
+     * @return int para manejar los errores que se puedan producir.
+     */
     public int annadirCancion(String _titulo, String _duracion, String _escritor, int _album) {
         
         Statement sta;
@@ -234,7 +286,16 @@ public class ConectorBBDD {
         
     }
 
-    public void updateCancion(String _id, String _titulo, String _duracion, String _escritor, int _album) {
+    /**
+     * @see Permite modificar la información almacenada en la tabla cancion de la base de datos.
+     * @param _id
+     * @param _titulo
+     * @param _duracion int con la clave primaria de la tabla album.
+     * @param _escritor
+     * @param _album
+     * @return int para manejar los errores que se puedan producir.
+     */
+    public int updateCancion(String _id, String _titulo, String _duracion, String _escritor, int _album) {
         
         Statement sta;
         String query = "UPDATE cancion SET titulo= ?, duracion= ?, escritor= ?, album = ? WHERE id= ?;";
@@ -254,13 +315,19 @@ public class ConectorBBDD {
             sta.close();
             pst.close();
             
+            return 0;
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            return -1;
         }
         
     }
 
-    public void deleteCancion(int _id) {
+    /**
+     * @see Permite eliminar una canción de la base de datos.
+     * @param _id
+     * @return int para manejar los errores que se puedan producir.
+     */
+    public int deleteCancion(int _id) {
         
         Statement sta;
         try {
@@ -271,14 +338,22 @@ public class ConectorBBDD {
             
             sta.close();
             
+            return 0;
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            return -1;
         }
-        
-        
     }
 
-    public void updateAlbum(String _id, String _titulo, String _grupo, String _duracion, String _productor) {
+    /**
+     * @see Permite modificar la información almacenada en la tabla album de la base de datos.
+     * @param _id
+     * @param _titulo
+     * @param _grupo
+     * @param _duracion
+     * @param _productor
+     * @return int para manejar los errores que se puedan producir.
+     */
+    public int updateAlbum(String _id, String _titulo, String _grupo, String _duracion, String _productor) {
         
         String query = "UPDATE album SET titulo= ?, grupo= ?, duracion= ?, productor = ? WHERE id= ?;";
         try {
@@ -293,13 +368,19 @@ public class ConectorBBDD {
             
             pst.close();
             
+            return 0;
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            return -1;
         }
         
     }
-
-    public void deleteAlbum(int _id) {
+    
+    /**
+     * @see Permite eliminar un album de la base de datos.
+     * @param _id
+     * @return int para manejar los errores que se puedan producir.
+     */
+    public int deleteAlbum(int _id) {
         
         Statement sta;
         try {
@@ -308,8 +389,9 @@ public class ConectorBBDD {
             
             sta.close();
             
+            return 0;
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, e);
+            return -1;
         }
         
     }

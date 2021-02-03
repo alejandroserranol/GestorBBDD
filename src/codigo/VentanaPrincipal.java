@@ -5,12 +5,10 @@
  */
 package codigo;
 
-import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -59,6 +57,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButtonAnnadirAlbum = new javax.swing.JButton();
         jButtonModificarAlbum = new javax.swing.JButton();
         jButtonBorrarAlbum = new javax.swing.JButton();
+        jLabelFormato3 = new javax.swing.JLabel();
         jPanelCanciones = new javax.swing.JPanel();
         jButtonDisplayCanciones = new javax.swing.JButton();
         jLabelSeleccion = new javax.swing.JLabel();
@@ -81,6 +80,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jButtonAnnadirCancion = new javax.swing.JButton();
         jButtonModificarCancion = new javax.swing.JButton();
         jButtonBorrarCancion = new javax.swing.JButton();
+        jLabelFormato1 = new javax.swing.JLabel();
+        jLabelFormato2 = new javax.swing.JLabel();
         jPanelAdmin = new javax.swing.JPanel();
         jTextFieldAnnadirCampo = new javax.swing.JTextField();
         jComboBoxCampo = new javax.swing.JComboBox<>();
@@ -142,6 +143,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabelTituloDuracionAlbum.setText("Duración");
 
+        jTextFieldDuracionAlbum.setText("00:00:00");
+
         jLabelTituloProductor.setText("Productor");
 
         jButtonAnnadirAlbum.setText("Añadir");
@@ -153,6 +156,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         jButtonModificarAlbum.setText("Modificar");
+        jButtonModificarAlbum.setEnabled(false);
         jButtonModificarAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonModificarAlbumActionPerformed(evt);
@@ -160,11 +164,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         jButtonBorrarAlbum.setText("Borrar");
+        jButtonBorrarAlbum.setEnabled(false);
         jButtonBorrarAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBorrarAlbumActionPerformed(evt);
             }
         });
+
+        jLabelFormato3.setText("Formato: (hh:mm:ss)");
 
         javax.swing.GroupLayout jPanelAlbumesLayout = new javax.swing.GroupLayout(jPanelAlbumes);
         jPanelAlbumes.setLayout(jPanelAlbumesLayout);
@@ -189,9 +196,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(jTextFieldGrupo)
                             .addComponent(jButtonModificarAlbum, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanelAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldDuracionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelTituloDuracionAlbum))
+                            .addGroup(jPanelAlbumesLayout.createSequentialGroup()
+                                .addComponent(jLabelTituloDuracionAlbum)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelFormato3)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelTituloProductor)
@@ -211,7 +221,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabelTituloAlbum)
                     .addComponent(jLabelTituloGrupo)
                     .addComponent(jLabelTituloDuracionAlbum)
-                    .addComponent(jLabelTituloProductor))
+                    .addComponent(jLabelTituloProductor)
+                    .addComponent(jLabelFormato3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelAlbumesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldTituloAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,6 +257,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         buttonGroupSeleccion.add(jRadioButtonDuracion);
         jRadioButtonDuracion.setText("Duración");
 
+        jTextFieldSeleccionDuracion.setText("00:00:00");
+
         jComboBoxDuracionOrden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButtonDisplayCancionSeleccionada.setText("Mostrar");
@@ -275,6 +288,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         jLabelDuracionCancion.setText("Duración");
 
+        jTextFieldDuracionCancion.setText("00:00:00");
+
         jLabelEscritor.setText("Escritor");
 
         jLabelAlbum.setText("Album");
@@ -290,6 +305,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         jButtonModificarCancion.setText("Modificar");
+        jButtonModificarCancion.setEnabled(false);
         jButtonModificarCancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonModificarCancionActionPerformed(evt);
@@ -297,11 +313,16 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         });
 
         jButtonBorrarCancion.setText("Borrar");
+        jButtonBorrarCancion.setEnabled(false);
         jButtonBorrarCancion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBorrarCancionActionPerformed(evt);
+                jButtonBorrarCancionCancionActionPerformed(evt);
             }
         });
+
+        jLabelFormato1.setText("Formato: (hh:mm:ss)");
+
+        jLabelFormato2.setText("Formato: (hh:mm:ss)");
 
         javax.swing.GroupLayout jPanelCancionesLayout = new javax.swing.GroupLayout(jPanelCanciones);
         jPanelCanciones.setLayout(jPanelCancionesLayout);
@@ -313,22 +334,24 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(jPanelCancionesLayout.createSequentialGroup()
                         .addComponent(jButtonDisplayCanciones)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                         .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanelCancionesLayout.createSequentialGroup()
+                            .addComponent(jLabelSeleccion, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCancionesLayout.createSequentialGroup()
                                 .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jRadioButtonDuracion)
-                                    .addComponent(jRadioButtonAlbum))
+                                    .addComponent(jRadioButtonAlbum)
+                                    .addComponent(jRadioButtonDuracion))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanelCancionesLayout.createSequentialGroup()
                                         .addComponent(jComboBoxDuracionOrden, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldSeleccionDuracion))
-                                    .addComponent(jComboBoxSeleccionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(jLabelFormato1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jTextFieldSeleccionDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboBoxSeleccionAlbum, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
-                                .addComponent(jButtonDisplayCancionSeleccionada))
-                            .addComponent(jLabelSeleccion)))
+                                .addComponent(jButtonDisplayCancionSeleccionada))))
                     .addGroup(jPanelCancionesLayout.createSequentialGroup()
                         .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabelTituloCancion)
@@ -336,9 +359,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(jTextFieldTituloCancion))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonModificarCancion, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(jLabelDuracionCancion)
-                            .addComponent(jTextFieldDuracionCancion))
+                            .addComponent(jButtonModificarCancion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                            .addGroup(jPanelCancionesLayout.createSequentialGroup()
+                                .addComponent(jLabelDuracionCancion)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabelFormato2))
+                            .addComponent(jTextFieldDuracionCancion, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -365,10 +391,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                             .addComponent(jComboBoxSeleccionAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxDuracionOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButtonDuracion)
                             .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jRadioButtonDuracion)
-                                .addComponent(jTextFieldSeleccionDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jTextFieldSeleccionDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabelFormato1)
+                                .addComponent(jComboBoxDuracionOrden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jButtonDisplayCancionSeleccionada, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonDisplayCanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
@@ -378,14 +405,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabelTituloCancion)
                     .addComponent(jLabelDuracionCancion)
                     .addComponent(jLabelEscritor)
-                    .addComponent(jLabelAlbum))
+                    .addComponent(jLabelAlbum)
+                    .addComponent(jLabelFormato2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jComboBoxAlbum, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jTextFieldTituloCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldDuracionCancion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldEscritor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldDuracionCancion, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanelCancionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonBorrarCancion, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
@@ -449,12 +477,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addComponent(jLabelTipo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAnnadirCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAnnadirCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldAnnadirCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboBoxTabla, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldVarSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(511, Short.MAX_VALUE))
+                .addContainerGap(514, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Admin", jPanelAdmin);
@@ -473,7 +501,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                         .addComponent(jButtonDesconexion)
                         .addGap(18, 18, 18)
                         .addComponent(jLabelMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -493,6 +521,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButtonConexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConexionActionPerformed
 
+        //Realiza la conexión a la base de datos e introduce los elementos en los combobox.
+        
         if (conector.ConectarBBDD() == -1) {
             this.jLabelMensaje.setText("ERROR en la conexión a la BBDD discografica.");
             this.jButtonConexion.setEnabled(false);
@@ -501,9 +531,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             this.jButtonDisplayAlbum.setEnabled(false);
             this.jButtonAnnadirAlbum.setEnabled(false);
             this.jButtonAnnadirCancion.setEnabled(false);
-            this.jButtonDisplayAlbum.setEnabled(false);
             this.jButtonDisplayCanciones.setEnabled(false);
             this.jButtonDisplayCancionSeleccionada.setEnabled(false);
+            this.jButtonModificarAlbum.setEnabled(false);
+            this.jButtonModificarCancion.setEnabled(false);
+            this.jButtonBorrarAlbum.setEnabled(false);
+            this.jButtonBorrarCancion.setEnabled(false);
         } else {
             this.jLabelMensaje.setText("Conectado a discografica.");
             this.jButtonConexion.setEnabled(false);
@@ -512,9 +545,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             this.jButtonDisplayAlbum.setEnabled(true);
             this.jButtonAnnadirAlbum.setEnabled(true);
             this.jButtonAnnadirCancion.setEnabled(true);
-            this.jButtonDisplayAlbum.setEnabled(true);
             this.jButtonDisplayCanciones.setEnabled(true);
             this.jButtonDisplayCancionSeleccionada.setEnabled(true);
+            this.jButtonModificarAlbum.setEnabled(false);
+            this.jButtonModificarCancion.setEnabled(false);
+            this.jButtonBorrarAlbum.setEnabled(false);
+            this.jButtonBorrarCancion.setEnabled(false);
         }
 
         this.jComboBoxCampo.removeAllItems();
@@ -549,6 +585,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButtonDesconexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDesconexionActionPerformed
 
+        //Desconecta la aplicación de la base de datos.
+        
         if (conector.cerrarConexion() == -1) {
             this.jLabelMensaje.setText("Error al cerrar la conexión.");
             this.jButtonConexion.setEnabled(false);
@@ -557,43 +595,45 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             this.jButtonDisplayAlbum.setEnabled(false);
             this.jButtonAnnadirAlbum.setEnabled(false);
             this.jButtonAnnadirCancion.setEnabled(false);
+            this.jButtonDisplayCanciones.setEnabled(false);
+            this.jButtonDisplayCancionSeleccionada.setEnabled(false);
+            this.jButtonModificarAlbum.setEnabled(false);
+            this.jButtonModificarCancion.setEnabled(false);
+            this.jButtonBorrarAlbum.setEnabled(false);
+            this.jButtonBorrarCancion.setEnabled(false);
         } else {
             this.jLabelMensaje.setText("Conexión cerrada correctamente.");
-            this.jButtonConexion.setEnabled(true);
+            this.jButtonConexion.setEnabled(false);
             this.jButtonDesconexion.setEnabled(false);
             this.jButtonAnnadirCampo.setEnabled(false);
             this.jButtonDisplayAlbum.setEnabled(false);
             this.jButtonAnnadirAlbum.setEnabled(false);
             this.jButtonAnnadirCancion.setEnabled(false);
+            this.jButtonDisplayCanciones.setEnabled(false);
+            this.jButtonDisplayCancionSeleccionada.setEnabled(false);
+            this.jButtonModificarAlbum.setEnabled(false);
+            this.jButtonModificarCancion.setEnabled(false);
+            this.jButtonBorrarAlbum.setEnabled(false);
+            this.jButtonBorrarCancion.setEnabled(false);
         }
 
     }//GEN-LAST:event_jButtonDesconexionActionPerformed
 
     private void jButtonAnnadirCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnnadirCampoActionPerformed
 
+        //Permite modificar la estructura de la base de datos para añadir un campo a las tablas.
+        
         int resultadoModificacion = conector.annadirCampo(this.jComboBoxTabla.getSelectedItem().toString(), this.jTextFieldAnnadirCampo.getText(), this.jComboBoxCampo.getSelectedItem().toString(), this.jTextFieldVarSize.getText());
 
         switch (resultadoModificacion) {
             case -1:
                 this.jLabelMensaje.setText("La columna existe en la base de datos.");
-                this.jButtonConexion.setEnabled(false);
-                this.jButtonDesconexion.setEnabled(true);
-                this.jButtonAnnadirCampo.setEnabled(false);
-                this.jButtonDisplayAlbum.setEnabled(true);
                 break;
             case -2:
                 this.jLabelMensaje.setText("Error al añadir publicación.");
-                this.jButtonConexion.setEnabled(false);
-                this.jButtonDesconexion.setEnabled(true);
-                this.jButtonAnnadirCampo.setEnabled(false);
-                this.jButtonDisplayAlbum.setEnabled(true);
                 break;
             default:
                 this.jLabelMensaje.setText("Columna añadida satisfactoriamente.");
-                this.jButtonConexion.setEnabled(false);
-                this.jButtonDesconexion.setEnabled(true);
-                this.jButtonAnnadirCampo.setEnabled(false);
-                this.jButtonDisplayAlbum.setEnabled(true);
                 break;
         }
 
@@ -601,17 +641,31 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButtonDisplayAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDisplayAlbumActionPerformed
 
-        show_album();        
+        //Muestra todos los álbumes en la tabla.
+        
+        if(show_albumes() == -1) {
+            this.jLabelMensaje.setText("Error al mostrar la información.");
+        } else {
+            this.jLabelMensaje.setText("Información mostrada correctamente.");
+        }
 
     }//GEN-LAST:event_jButtonDisplayAlbumActionPerformed
 
     private void jButtonDisplayCancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDisplayCancionesActionPerformed
         
-        show_cancion();
+        //Muestra todos las canciones en la tabla.
+        
+        if(show_canciones() == -1) {
+            this.jLabelMensaje.setText("Error al mostrar la información.");
+        } else {
+            this.jLabelMensaje.setText("Información mostrada correctamente.");
+        }
         
     }//GEN-LAST:event_jButtonDisplayCancionesActionPerformed
 
     private void jButtonAnnadirCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnnadirCancionActionPerformed
+        
+        //Permite añadir canciones a la base de datos.
         
         if(conector.annadirCancion(jTextFieldTituloCancion.getText(), jTextFieldDuracionCancion.getText(), jTextFieldEscritor.getText(), Integer.parseInt(jComboBoxAlbum.getSelectedItem().toString().substring(0, 1))) == -1){
             this.jLabelMensaje.setText("Error al añadir canción.");
@@ -622,16 +676,28 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAnnadirCancionActionPerformed
 
     private void jButtonDisplayCancionSeleccionadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDisplayCancionSeleccionadaActionPerformed
-                
+        
+        //Permite realizar consultas personalizadas a la base de datos.
+        
         if(this.jRadioButtonAlbum.isSelected()){
-            show_cancionFiltroAlbum(Integer.parseInt(jComboBoxSeleccionAlbum.getSelectedItem().toString().substring(0, 1)));
+            if(show_cancionFiltroAlbum(Integer.parseInt(jComboBoxSeleccionAlbum.getSelectedItem().toString().substring(0, 1))) == -1) {
+                this.jLabelMensaje.setText("Error al mostrar la información.");
+            } else {
+                this.jLabelMensaje.setText("Información mostrada correctamente.");
+            }
         } else if (this.jRadioButtonDuracion.isSelected()) {
-            show_cancionFiltroDuracion(this.jTextFieldSeleccionDuracion.getText() ,this.jComboBoxDuracionOrden.getSelectedIndex());
+            if(show_cancionFiltroDuracion(this.jTextFieldSeleccionDuracion.getText() ,this.jComboBoxDuracionOrden.getSelectedIndex()) == -1) {
+                this.jLabelMensaje.setText("Error al mostrar la información.");
+            } else {
+                this.jLabelMensaje.setText("Información mostrada correctamente.");
+            }            
         }
         
     }//GEN-LAST:event_jButtonDisplayCancionSeleccionadaActionPerformed
 
     private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        
+        //Cierra la conexión a la base de datos cuando se cierra la aplicación.
         
         try {
             if(!conector.conexion.isClosed()){
@@ -645,6 +711,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jTable_Display_CancionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_Display_CancionMouseClicked
 
+        //Permite mostar la canción seleccionada con un click en los text field.   
+        
         //Set data to their textField
         DefaultTableModel tblModel = (DefaultTableModel) jTable_Display_Cancion.getModel();
 
@@ -666,6 +734,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void jButtonModificarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarCancionActionPerformed
         
+        //Permite modificar la información almacenada en la tabla cancion de la base de datos.
+        
         if(jTable_Display_Cancion.getSelectedRowCount() == 1){
             //Set data to their textField
             DefaultTableModel tblModel = (DefaultTableModel) jTable_Display_Cancion.getModel();
@@ -675,13 +745,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             String duracion = this.jTextFieldDuracionCancion.getText();
             String escritor = this.jTextFieldEscritor.getText();
             int album = Integer.parseInt(String.valueOf(titulo.charAt(0)));
-
-            conector.updateCancion(id, titulo, duracion, escritor, album);
+            
+            if(conector.updateCancion(id, titulo, duracion, escritor, album) == -1) {
+                this.jLabelMensaje.setText("Error en la modificación.");
+            } else {
+                this.jLabelMensaje.setText("Información modificada correctamente.");
+            }
         }
         
     }//GEN-LAST:event_jButtonModificarCancionActionPerformed
 
-    private void jButtonBorrarCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarCancionActionPerformed
+    private void jButtonBorrarCancionCancionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarCancionCancionActionPerformed
+        
+        //Permite eliminar una canción de la base de datos.
         
         if(jTable_Display_Cancion.getSelectedRowCount() == 1){
             //Set data to their textField
@@ -689,12 +765,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             //if single row is selected than update
             int id = Integer.parseInt(tblModel.getValueAt(jTable_Display_Cancion.getSelectedRow(), 0).toString());
 
-            conector.deleteCancion(id);
+            if(conector.deleteCancion(id) == -1){
+                this.jLabelMensaje.setText("Error en el borrado.");
+            } else {
+                this.jLabelMensaje.setText("Registro borrado correctamente.");
+            }
         }
         
-    }//GEN-LAST:event_jButtonBorrarCancionActionPerformed
+    }//GEN-LAST:event_jButtonBorrarCancionCancionActionPerformed
 
     private void jButtonModificarAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModificarAlbumActionPerformed
+        
+        //Permite modificar la información almacenada en la tabla album de la base de datos.
         
         if(jTable_Display_Album.getSelectedRowCount() == 1){
             //Set data to their textField
@@ -706,12 +788,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             String duracion = this.jTextFieldDuracionCancion.getText();
             String escritor = this.jTextFieldEscritor.getText();
             
-            conector.updateAlbum(id, titulo, grupo, duracion, escritor);
+            if(conector.updateAlbum(id, titulo, grupo, duracion, escritor) == -1){
+                this.jLabelMensaje.setText("Error en la modificación.");
+            } else {
+                this.jLabelMensaje.setText("Información modificada correctamente.");
+            }
         }
         
     }//GEN-LAST:event_jButtonModificarAlbumActionPerformed
 
     private void jButtonBorrarAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarAlbumActionPerformed
+        
+        //Permite eliminar un album de la base de datos.
         
         if(jTable_Display_Album.getSelectedRowCount() == 1){
             //Set data to their textField
@@ -719,13 +807,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             //if single row is selected than update
             int id = Integer.parseInt(tblModel.getValueAt(jTable_Display_Album.getSelectedRow(), 0).toString());
 
-            conector.deleteAlbum(id);
+            if(conector.deleteAlbum(id) == -1){
+                this.jLabelMensaje.setText("Error en el borrado.");
+            } else {
+                this.jLabelMensaje.setText("Registro borrado correctamente.");
+            }
         }
         
     }//GEN-LAST:event_jButtonBorrarAlbumActionPerformed
 
     private void jButtonAnnadirAlbumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnnadirAlbumActionPerformed
 
+        //Permite añadir un álbum a la base de datos.
+        
         if (conector.annadirAlbum(jTextFieldTituloAlbum.getText(), jTextFieldGrupo.getText(), jTextFieldDuracionAlbum.getText(), jTextFieldProductor.getText()) == -1) {
             this.jLabelMensaje.setText("Error al añadir album.");
         } else {
@@ -734,6 +828,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAnnadirAlbumActionPerformed
 
     private void jTable_Display_AlbumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable_Display_AlbumMouseClicked
+        
+        //Permite mostar el album seleccionada con un click en los text field 
         
         //Set data to their textField
         DefaultTableModel tblModel = (DefaultTableModel) jTable_Display_Album.getModel();
@@ -796,6 +892,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDimension;
     private javax.swing.JLabel jLabelDuracionCancion;
     private javax.swing.JLabel jLabelEscritor;
+    private javax.swing.JLabel jLabelFormato1;
+    private javax.swing.JLabel jLabelFormato2;
+    private javax.swing.JLabel jLabelFormato3;
     private javax.swing.JLabel jLabelMensaje;
     private javax.swing.JLabel jLabelSeleccion;
     private javax.swing.JLabel jLabelTipo;
@@ -826,68 +925,112 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldVarSize;
     // End of variables declaration//GEN-END:variables
 
-    public void show_album() {
-
-        ArrayList<Album> list = conector.albumList();
-        DefaultTableModel model = (DefaultTableModel) jTable_Display_Album.getModel();
-        model.setRowCount(0);
-        Object[] row = new Object[5];
-        for (int i = 0; i < list.size(); i++) {
-            row[0] = list.get(i).getId();
-            row[1] = list.get(i).getTitulo();
-            row[2] = list.get(i).getGrupo();
-            row[3] = list.get(i).getDuracion();
-            row[4] = list.get(i).getProductor();
-            model.addRow(row);
-        }
-    }
-    
-    
-    public void show_cancion() {
-
-        ArrayList<Cancion> list = conector.cancionList();
-        DefaultTableModel model = (DefaultTableModel) jTable_Display_Cancion.getModel();
-        model.setRowCount(0);
-        Object[] row = new Object[5];
-        for (int i = 0; i < list.size(); i++) {
-            row[0] = list.get(i).getId();
-            row[1] = list.get(i).getTitulo();
-            row[2] = list.get(i).getDuracion();
-            row[3] = list.get(i).getEscritor();
-            row[4] = list.get(i).getAlbum();
-            model.addRow(row);
-        }
-    }
-    
-    public void show_cancionFiltroAlbum(int _album) {
+    /**
+     * @see Recibe la lista de álbumes de la clase ConectorBBDD y escribe la información en la tabla.
+     * @return  int para manejar los errores que se puedan producir.
+     */    
+    public int show_albumes() {
         
-        ArrayList<Cancion> list = conector.cancionListFiltroAlbum(_album);
-        DefaultTableModel model = (DefaultTableModel) jTable_Display_Cancion.getModel();
-        model.setRowCount(0);
-        Object[] row = new Object[5];
-        for (int i = 0; i < list.size(); i++) {
-            row[0] = list.get(i).getId();
-            row[1] = list.get(i).getTitulo();
-            row[2] = list.get(i).getDuracion();
-            row[3] = list.get(i).getEscritor();
-            row[4] = list.get(i).getAlbum();
-            model.addRow(row);
+        try {
+            ArrayList<Album> list = conector.albumList();
+            DefaultTableModel model = (DefaultTableModel) jTable_Display_Album.getModel();
+            //Vacía la tabla.
+            model.setRowCount(0);
+            Object[] row = new Object[5];
+            for (int i = 0; i < list.size(); i++) {
+                row[0] = list.get(i).getId();
+                row[1] = list.get(i).getTitulo();
+                row[2] = list.get(i).getGrupo();
+                row[3] = list.get(i).getDuracion();
+                row[4] = list.get(i).getProductor();
+                model.addRow(row);                
+            }
+            
+            return 0;
+        } catch (Exception e){
+            return -1;
         }
     }
     
-    public void show_cancionFiltroDuracion(String _duracion, int _orden) {
+    /**
+     * @see Recibe la lista de canciones de la clase ConectorBBDD y escribe la información en la tabla.
+     * @return  int para manejar los errores que se puedan producir.
+     */    
+    public int show_canciones() {
 
-        ArrayList<Cancion> list = conector.cancionListFiltroDuracion(_duracion, _orden);
-        DefaultTableModel model = (DefaultTableModel) jTable_Display_Cancion.getModel();
-        model.setRowCount(0);
-        Object[] row = new Object[5];
-        for (int i = 0; i < list.size(); i++) {
-            row[0] = list.get(i).getId();
-            row[1] = list.get(i).getTitulo();
-            row[2] = list.get(i).getDuracion();
-            row[3] = list.get(i).getEscritor();
-            row[4] = list.get(i).getAlbum();
-            model.addRow(row);
+        try {
+            ArrayList<Cancion> list = conector.cancionList();
+            DefaultTableModel model = (DefaultTableModel) jTable_Display_Cancion.getModel();
+            //Vacía la tabla.
+            model.setRowCount(0);
+            Object[] row = new Object[5];
+            for (int i = 0; i < list.size(); i++) {
+                row[0] = list.get(i).getId();
+                row[1] = list.get(i).getTitulo();
+                row[2] = list.get(i).getDuracion();
+                row[3] = list.get(i).getEscritor();
+                row[4] = list.get(i).getAlbum();
+                model.addRow(row);
+            }
+            
+            return 0;
+        } catch (Exception e){
+            return -1;
+        }
+    }
+    
+    /**
+     * @see Recibe la lista de canciones del album seleccionado de la clase ConectorBBDD y escribe la información en la tabla.
+     * @param _album: Entero que representa el album seleccionado.
+     * @return  int para manejar los errores que se puedan producir.
+     */ 
+    public int show_cancionFiltroAlbum(int _album) {
+        
+        try {
+            ArrayList<Cancion> list = conector.cancionListFiltroAlbum(_album);
+            DefaultTableModel model = (DefaultTableModel) jTable_Display_Cancion.getModel();
+            //Vacía la tabla.
+            model.setRowCount(0);
+            Object[] row = new Object[5];
+            for (int i = 0; i < list.size(); i++) {
+                row[0] = list.get(i).getId();
+                row[1] = list.get(i).getTitulo();
+                row[2] = list.get(i).getDuracion();
+                row[3] = list.get(i).getEscritor();
+                row[4] = list.get(i).getAlbum();
+                model.addRow(row);
+            }
+            return 0;
+        } catch (Exception e){
+            return -1;
+        }
+    }
+    
+    /**
+     * @see Recibe la lista de canciones del album seleccionado de la clase ConectorBBDD y escribe la información en la tabla.
+     * @param _duracion: Cadena de caracteres con la duración de las canciones.
+     * @param _orden: Entero que permite seleccionar cómo ordenar las canciones (ascendente o descendente).
+     * @return  int para manejar los errores que se puedan producir.
+     */ 
+    public int show_cancionFiltroDuracion(String _duracion, int _orden) {
+
+        try {
+            ArrayList<Cancion> list = conector.cancionListFiltroDuracion(_duracion, _orden);
+            DefaultTableModel model = (DefaultTableModel) jTable_Display_Cancion.getModel();
+            //Vacía la tabla.
+            model.setRowCount(0);
+            Object[] row = new Object[5];
+            for (int i = 0; i < list.size(); i++) {
+                row[0] = list.get(i).getId();
+                row[1] = list.get(i).getTitulo();
+                row[2] = list.get(i).getDuracion();
+                row[3] = list.get(i).getEscritor();
+                row[4] = list.get(i).getAlbum();
+                model.addRow(row);
+            }
+            return 0;
+        } catch (Exception e){
+            return -1;
         }
     }
     
